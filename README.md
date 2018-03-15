@@ -2,4 +2,4 @@
 
 尝试至少一天一道题
 
-GoGoGo
+GoGoGo!!!
