@@ -1,10 +1,5 @@
-# LeetCode-solutions-in-C-Python
+# LeetCode-solutions
 
+尝试至少一天一道题
 
-Try hard to improve myself;
-
-
-Chinese 尝试刷题LeetCode;
-
-
-Try to show the solutions in C++/Python.
+GoGoGo
