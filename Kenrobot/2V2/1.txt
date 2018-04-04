@@ -1,0 +1,58 @@
+float dir1 = DirfishToG(fishPt[1], LA11);
+                 float dir2 = DirfishToG(fishPt[0], LA21);
+                 StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0],LA21  ,
+                        dir1, 5, 10, 100, 14, 14, 8, 100, true);
+                 StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1],LA11  ,
+                        dir2, 5, 10, 100, 14, 14, 8, 100, true);
+                 if (fishPt[1].Z > -1000 && fishPt[1].Z < -560 && fishPt[0].Z < 1000 && fishPt[0].Z > 560)
+                 {
+                     xna.Vector3 P = new Vector3();
+                     P = dian(0, mission.TeamsRef[teamId].Fishes[0]);
+                     xna.Vector3 Q = new Vector3();
+                     Q = dian(1, mission.TeamsRef[teamId].Fishes[1]);
+                     float dir4 = DirfishToG(fishPt[0], P);
+                     float dir6 = DirfishToG(fishPt[1], Q);
+                     StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0], P,
+                            dir4, 5, 10, 100, 14, 14, 8, 100, true);
+                     StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], Q,
+                            dir6, 5, 10, 100, 14, 14, 8, 100, true);
+                     
+                 }
+     public xna.Vector3 dian(int i, RoboFish fish )
+        {
+            xna.Vector3 C = new Vector3();
+            xna.Vector3 A = new Vector3();//鱼的身体坐标
+            A=new Vector3 (fish.PositionMm.X ,fish.PositionMm.Y,fish.PositionMm.Z);
+            xna.Vector3 B = new Vector3();//鱼头坐标
+            B=new Vector3 (fish .PolygonVertices[i].X,fish .PolygonVertices[i].Y,fish .PolygonVertices[i].Z);
+            float  L=(float )fish .BodyLength ;
+             C.Y = B.Y;
+             if (fish.PositionMm.Z < 1000 && fish.PositionMm.Z > 780)
+             {
+                 if (fish.PositionMm.X > -1400 && fish.PositionMm.X < 1500)
+                 {
+                     C.X = B.X - L;
+                     C.Z = B.Z;
+                 }
+                 else
+                 {
+                     C.X = B.X;
+                     C.Z = B.Z - L;
+                 }
+             }
+             if (fish.PositionMm.Z <-780 && fish.PositionMm.Z > -1000 )
+             {
+                 if (fish.PositionMm.X > -1400 && fish.PositionMm.X < 1500)
+                 {
+                     C.X = B.X - L;
+                     C.Z = B.Z;
+                 }
+                 else
+                 {
+                     C.X = B.X;
+                     C.Z = B.Z + L;
+                 }
+             }
+
+            return C;
+        }

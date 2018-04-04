@@ -1,0 +1,66 @@
+1  public float DisFishToBall(xna.Vector3 ballPt, xna.Vector3 fishPt)//距离函数
+        {
+            float disFishToBall = (float)Math.Sqrt(Math.Pow((ballPt.Z - fishPt.Z), 2) + Math.Pow((ballPt.X - fishPt.X), 2));
+            return disFishToBall;
+        }
+
+  public float DirBToG(xna.Vector3 ballPt, xna.Vector3 goalPt)//角度函数
+        {
+            float dirBToG = (float)Math.Atan((ballPt.X - goalPt.X) / (ballPt.Z - goalPt.Z));
+            return dirBToG;
+        }
+
+
+
+
+
+
+2            //基本定义
+            int r = 58; //定义整数        
+
+            int t = mission.CommonPara.RemainingCycles;//定义残存时间
+
+            int score = mission.TeamsRef[teamId].Para.Score;//定义所得分数
+
+            xna.Vector3 fishPt = mission.TeamsRef[teamId].Fishes[0].PositionMm;//定义零号鱼的坐标   
+
+            xna.Vector3 ballPt0 = mission.EnvRef.Balls[0].PositionMm;//定义0号球的坐标       
+
+            xna.Vector3 zuobiaodian = new xna.Vector3(-2200f, 0f, -1500f);//定义坐标点    
+
+            float dirFish = mission.TeamsRef[teamId].Fishes[0].BodyDirectionRad;//定义鱼的方向
+          
+           for (int i = 0; i < 10; i++)
+            {
+                fishPt[i] = mission.TeamsRef[teamId].Fishes[i].PositionMm;//花样游泳中用循环语句定义了十条鱼的坐标
+                dirFish[i] = mission.TeamsRef[teamId].Fishes[i].BodyDirectionRad;//定义了十条鱼的当前方向
+            }
+
+
+
+
+
+
+3            float disFtoB0 = DisFishToBall(ballPt0, fishPt);//根据函数计算出鱼和球的距离
+
+            float dirb5tog4 = DirBToG(ballPt5, Goal4);//根据函数计算出球5到球门的角度
+
+            StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0], DIANPt, dirb7tog3, 
+                        5, 8, 150, 14, 7, 8, 50, true);//Dribble函数例句
+   
+
+
+注：1）大家可以根据10条鱼的循环定义，同理可定义球场上的所有球的坐标，以及以后要用的多个目标点。 2）dribble函数括号中的各个参数的意义，要多看开发人员手册上，不懂的多看几遍，我们还会讲的，希望大家再接再厉···
+
+
+
+
+
+
+
+
+
+
+
+
+           

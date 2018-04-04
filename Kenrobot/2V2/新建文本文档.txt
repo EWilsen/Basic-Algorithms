@@ -1,0 +1,433 @@
+////float dirBtoR = DirBToG(ballPt, Rgoal);
+            ////float dirBtoL = DirBToG(ballPt, Lgoal);
+            ////float dirBtoA = DirBToG(ballPt, Agoal);
+            ////float dirBtoA1 = DirBToG(ballPt, A1goal);
+            ////float dirBtoB = DirBToG(ballPt, Bgoal);
+            ////float dirBtoB1 = DirBToG(ballPt, B1goal);
+            
+            ////dian.X = ballPt.X + (float)(0.6 * r * Math.Cos(dirBtoL));
+            ////dian.Z = ballPt.Z + (float)(0.6 * r * Math.Sin(dirBtoL));
+            //StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0], 
+            //    dian, 2, 10, 5, 150, 14, 14, 15, 100, true);
+            //xna.Vector3 fishPth = new xna.Vector3();
+            //xna.Vector3 ballPt0 = mission.EnvRef.Balls[9].PositionMm;
+            //fishPth = mission.TeamsRef[teamId].Fishes[0].PositionMm;
+            //xna.Vector3 goal0 = new xna.Vector3(-2190, 0, 1410);
+            //xna.Vector3 goal1 = new xna.Vector3(-1150, 0, 324);
+            //float dirl = DirBToG(ballPt0, goal0);
+            //float disFtoB0 = DisFishToBall(ballPt0, fishPth);//根据函数计算出鱼和球的距离
+            //xna.Vector3 B = new xna.Vector3();
+            //int r = 58;
+            //B.X = (float)(ballPt0.X - 0.8 * r * Math.Sin(dirl));
+            //B.Z = (float)(ballPt0.Z - 0.8 * r * Math.Cos(dirl));
+            //if (fishPth.X > -650)
+            //{
+            //    StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].
+            //    Fishes[0], goal1, 2, 10, 5, 150, 14, 14, 15, 100, true);
+            //}
+            //if (fishPth.X < -650)
+            //{
+            //    StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].
+            //    Fishes[0], B, dirl, 5, 7, 80, 8, 6, 8, 80, true);
+            //}
+
+
+
+
+
+  if (score ==0)
+                {
+                    //if (fishPt [0].X <220&&fishPt [1].X <220&&t >5960)
+                    //{
+                    //    StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0],
+                    //     Ldian, 2, 10, 5, 100, 14, 14, 8, 80, true);
+                    //    StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1],
+                    //     Ldian, 2, 10, 5, 100, 14, 14, 8, 80, true);
+
+                    //}
+                    if (t < 5960)//到指定地方顶球
+                    {
+
+                        if ((fishPt[0].X > -1312 && fishPt[0].Z < 692) || (fishPt[1].X > -1312 && fishPt[1].Z > -692))//分别顶球到指定的中转位置
+                        {
+                            xna.Vector3 DianUP = new xna.Vector3();
+                            float dirBtoLUP = DirBToG(ballPt[0], LUPgoal);
+                            DianUP.X = ballPt[0].X + (float)(0.8 * r * Math.Cos(dirBtoLUP));
+                            DianUP.Z = ballPt[0].Z + (float)(0.8 * r * Math.Sin(dirBtoLUP));
+                            StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1],
+                                DianUP, dirBtoLUP, 5, 8, 80, 14, 8, 8, 80, true);
+                            //xna.Vector3 DianDOWN = new xna.Vector3();
+                            //float dirBtoLDOWN = DirBToG(ballPt[2], LDOWNgoal);
+                            DianUP.X = ballPt[0].X + (float)(0.8 * r * Math.Cos(dirBtoLUP));
+                            DianUP.Z = ballPt[0].Z + (float)(0.8 * r * Math.Sin(dirBtoLUP));
+                            StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0],
+                                DianUP, dirBtoLUP, 5, 8, 80, 14, 8, 8, 80, true);
+
+                        }
+                        if ((fishPt[0].X < -1064 && fishPt[0].Z < 0) && (fishPt[1].X < -1064 && fishPt[1].Z < 0))//从中转位置顶球到目标点
+                        {
+                            xna.Vector3 DianUP1 = new xna.Vector3();
+                            float dirBtoLUP1 = DirBToG(ballPt[0], Lgoal);
+                            DianUP1.X = ballPt[0].X + (float)(0.8 * r * Math.Cos(dirBtoLUP1));
+                            DianUP1.Z = ballPt[0].Z + (float)(0.8 * r * Math.Sin(dirBtoLUP1));
+                            StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1],
+                                DianUP1, dirBtoLUP1, 5, 8, 80, 14, 8, 8, 80, true);
+                            //xna.Vector3 DianDOWN1 = new xna.Vector3();
+                            //float dirBtoLDOWN1 = DirBToG(ballPt[2], Lgoal);
+                            DianUP1.X = ballPt[2].X + (float)(0.8 * r * Math.Cos(dirBtoLUP1));
+                            DianUP1.Z = ballPt[2].Z + (float)(0.8 * r * Math.Sin(dirBtoLUP1));
+                            StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0],
+                                DianUP1, dirBtoLUP1, 5, 8, 80, 14, 8, 8, 80, true);
+                        }
+                    }
+                }
+                
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ if (score == 0)
+                {
+                    if ((fishPt[0].X > -1312 && fishPt[0].Z < 692) || (fishPt[1].X > -1312 && fishPt[1].Z > -692))//分别顶球到指定的中转位置顶球
+                    {
+                        xna.Vector3 DianLUP = new xna.Vector3();
+                        float dirBtoLUP = DirBToG(ballPt[0], LUPgoal);
+                        DianLUP.X = ballPt[0].X + (float)(0.8 * r * Math.Cos(dirBtoLUP));
+                        DianLUP.Z = ballPt[0].Z + (float)(0.8 * r * Math.Sin(dirBtoLUP));
+                        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1],
+                            DianLUP, dirBtoLUP, 5, 8, 80, 14, 8, 8, 80, true);
+                        xna.Vector3 DianLDOWN = new xna.Vector3();
+                        float dirBtoLDOWN = DirBToG(ballPt[2], LDOWNgoal);
+                        DianLDOWN.X = ballPt[2].X + (float)(0.8 * r * Math.Cos(dirBtoLDOWN));
+                        DianLDOWN.Z = ballPt[2].Z + (float)(0.8 * r * Math.Sin(dirBtoLDOWN));
+                        StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0],
+                            DianLDOWN, dirBtoLDOWN, 5, 8, 80, 14, 8, 8, 80, true);
+                    }
+                    if (ballPt[0].X < -1064 && ballPt[1].X < -1064)
+                    {
+                        xna.Vector3 DianLUP1 = new xna.Vector3();
+                        float dirBtoLUP1 = DirBToG(ballPt[0], Lgoal);
+                        DianLUP1.X = ballPt[0].X + (float)(0.8 * r * Math.Cos(dirBtoLUP1));
+                        DianLUP1.Z = ballPt[0].Z + (float)(0.8 * r * Math.Sin(dirBtoLUP1));
+                        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1],
+                            DianLUP1, dirBtoLUP1, 5, 8, 80, 14, 8, 8, 80, true);
+                        xna.Vector3 DianLDOWN1 = new xna.Vector3();
+                        float dirBtoLDOWN1 = DirBToG(ballPt[2], Lgoal);
+                        DianLDOWN1.X = ballPt[2].X + (float)(0.8 * r * Math.Cos(dirBtoLDOWN1));
+                        DianLDOWN1.Z = ballPt[2].Z + (float)(0.8 * r * Math.Sin(dirBtoLDOWN1));
+                        StrategyHelper.Helpers.Dribble(ref decisions[0], mission.TeamsRef[teamId].Fishes[0],
+                            DianLDOWN1, dirBtoLDOWN1, 5, 8, 80, 14, 8, 8, 80, true);
+                    }
+
+                }
+                
+
+
+
+
+3号球和6号球的判断执行
+//if (dis3_fish1 <= dis6_fish1)
+                             //{
+                             //    #region //1号鱼顶3号球的方案
+                             //    //3号球在G2区
+                             //    if (ballPt[3].X < 1500 && ballPt[3].X > 948 && ballPt[3].Z > -560 && ballPt[3].Z < 0)
+                             //    {
+                             //        xna.Vector3 LHC_11 = new Vector3();
+                             //        float dirLHC_11 = DirBToG(ballPt[3], LHC1);
+                             //        LHC_11.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLHC_11));
+                             //        LHC_11.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Cos(dirLHC_11));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LHC_11,
+                             //            dirLHC_11, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[3].X < 1500 && ballPt[3].X > 948 && ballPt[3].Z > 0 && ballPt[3].Z < 560)
+                             //    {
+                             //        xna.Vector3 LHC_22 = new Vector3();
+                             //        float dirLHC_22 = DirBToG(ballPt[3], LHC1);
+                             //        LHC_22.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLHC_22));
+                             //        LHC_22.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Cos(dirLHC_22));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LHC_22,
+                             //            dirLHC_22, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    //3号球在D区的上部分
+                             //    if (ballPt[3].X < 948 && ballPt[3].X > 0 && ballPt[3].Z > -560 && ballPt[3].Z < 0)
+                             //    {
+                             //        xna.Vector3 LA112 = new Vector3();
+                             //        float dirLA112 = DirBToG(ballPt[3], LA11);
+                             //        LA112.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA112));
+                             //        LA112.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA112));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA112,
+                             //            dirLA112, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[3].X < 0 && ballPt[3].X > -948 && ballPt[3].Z > -560 && ballPt[3].Z < 0)
+                             //    {
+                             //        xna.Vector3 LA122 = new Vector3();
+                             //        float dirLA122 = DirBToG(ballPt[3], LA12);
+                             //        LA122.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA122));
+                             //        LA122.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA122));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA122,
+                             //            dirLA122, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //3号球在D区下半部分
+                             //    if (ballPt[3].X < 948 && ballPt[3].X > 0 && ballPt[3].Z > 0 && ballPt[3].Z < 560)
+                             //    {
+                             //        xna.Vector3 LA211 = new Vector3();
+                             //        float dirLA211 = DirBToG(ballPt[3], LA21);
+                             //        LA211.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA211));
+                             //        LA211.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA211));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA211,
+                             //            dirLA211, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[3].X < 0 && ballPt[3].X > -948 && ballPt[3].Z > 0 && ballPt[3].Z < 560)
+                             //    {
+                             //        xna.Vector3 LA221 = new Vector3();
+                             //        float dirLA221 = DirBToG(ballPt[3], LA22);
+                             //        LA221.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA221));
+                             //        LA221.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA221));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA221,
+                             //            dirLA221, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //3号球在A1区
+                             //    if (ballPt[3].X < 1500 && ballPt[3].X > 0 && ballPt[3].Z > -1000 && ballPt[3].Z < -560)
+                             //    {
+                             //        xna.Vector3 LA114 = new Vector3();
+                             //        float dirLA114 = DirBToG(ballPt[3], LA11);
+                             //        LA114.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA114));
+                             //        LA114.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA114));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA114,
+                             //            dirLA114, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[3].X < 0 && ballPt[3].X > -1200 && ballPt[3].Z > -1000 && ballPt[3].Z < -560)
+                             //    {
+                             //        xna.Vector3 LA124 = new Vector3();
+                             //        float dirLA124 = DirBToG(ballPt[3], B1);
+                             //        LA124.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA124));
+                             //        LA124.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA124));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA124,
+                             //            dirLA124, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //3号球在B1区
+                             //    else if (ballPt[3].X < -1200 && ballPt[3].X > -1500 && ballPt[3].Z < 1000 && ballPt[3].Z > 560)
+                             //    {
+                             //        xna.Vector3 B12 = new Vector3();
+                             //        float dirB12 = DirBToG(ballPt[3], G11);
+                             //        B12.X = (float)(ballPt[3].X - 0.8 * r * Math.Cos(dirB12));
+                             //        B12.Z = (float)(ballPt[3].Z - 0.8 * r * Math.Sin(dirB12));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], B12,
+                             //            dirB12, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+
+                             //    //3号球在A2区
+                             //    if (ballPt[3].X < 1500 && ballPt[3].X > 0 && ballPt[3].Z > 560 && ballPt[3].Z < 1000)
+                             //    {
+                             //        xna.Vector3 LA212 = new Vector3();
+                             //        float dirLA212 = DirBToG(ballPt[3], LA21);
+                             //        LA212.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA212));
+                             //        LA212.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA212));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA212,
+                             //            dirLA212, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[3].X < 0 && ballPt[3].X > -1200 && ballPt[3].Z > 560 && ballPt[3].Z < 1000)
+                             //    {
+                             //        xna.Vector3 LA222 = new Vector3();
+                             //        float dirLA222 = DirBToG(ballPt[3], B2);
+                             //        LA222.X = (float)(ballPt[3].X + 0.8 * r * Math.Cos(dirLA222));
+                             //        LA222.Z = (float)(ballPt[3].Z + 0.8 * r * Math.Sin(dirLA222));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA222,
+                             //            dirLA222, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //3号球在B2区
+                             //    else if (ballPt[3].X < -1200 && ballPt[3].X > -1500 && ballPt[3].Z < 1000 && ballPt[3].Z > 560)
+                             //    {
+                             //        xna.Vector3 B21 = new Vector3();
+                             //        float dirB21 = DirBToG(ballPt[3], G12);
+                             //        B21.X = (float)(ballPt[3].X - 0.8 * r * Math.Cos(dirB21));
+                             //        B21.Z = (float)(ballPt[3].Z - 0.8 * r * Math.Sin(dirB21));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], B21,
+                             //            dirB21, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+
+
+                             //    //3号球在G1区
+                             //    if (ballPt[3].X > -1500 && ballPt[3].X < -1092 && ballPt[3].Z < 560 && ballPt[3].Z > 0)
+                             //    {
+                             //        xna.Vector3 G122 = new Vector3();
+                             //        float dirG122 = DirfishToG(ballPt[3], Lgoal);
+                             //        G122.X = (float)(ballPt[3].X - 0.8 * r * Math.Cos(dirG122));
+                             //        G122.Z = (float)(ballPt[3].Z - 0.8 * r * Math.Sin(dirG122));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], G122,
+                             //            dirG122, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[3].X > -1500 && ballPt[3].X < -1092 && ballPt[3].Z < 0 && ballPt[3].Z > -560)
+                             //    {
+                             //        xna.Vector3 G112 = new Vector3();
+                             //        float dirG112 = DirfishToG(ballPt[3], Lgoal);
+                             //        G112.X = (float)(ballPt[3].X - 0.8 * r * Math.Cos(dirG112));
+                             //        G112.Z = (float)(ballPt[3].Z - 0.8 * r * Math.Sin(dirG112));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], G112,
+                             //           dirG112, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    #endregion
+                             //}
+                             //else
+                             //{
+                             //    #region //1号鱼顶6号球的方案
+                             //    //6号球在G2区
+                             //    if (ballPt[6].X < 1500 && ballPt[6].X > 948 && ballPt[6].Z > -560 && ballPt[6].Z < 0)
+                             //    {
+                             //        xna.Vector3 LHC_11 = new Vector3();
+                             //        float dirLHC_11 = DirBToG(ballPt[6], LHC1);
+                             //        LHC_11.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLHC_11));
+                             //        LHC_11.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Cos(dirLHC_11));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LHC_11,
+                             //            dirLHC_11, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[6].X < 1500 && ballPt[6].X > 948 && ballPt[6].Z > 0 && ballPt[6].Z < 560)
+                             //    {
+                             //        xna.Vector3 LHC_22 = new Vector3();
+                             //        float dirLHC_22 = DirBToG(ballPt[6], LHC1);
+                             //        LHC_22.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLHC_22));
+                             //        LHC_22.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Cos(dirLHC_22));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LHC_22,
+                             //            dirLHC_22, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    //6号球在D区的上部分
+                             //    if (ballPt[6].X < 948 && ballPt[6].X > 0 && ballPt[6].Z > -560 && ballPt[6].Z < 0)
+                             //    {
+                             //        xna.Vector3 LA112 = new Vector3();
+                             //        float dirLA112 = DirBToG(ballPt[6], LA11);
+                             //        LA112.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA112));
+                             //        LA112.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA112));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA112,
+                             //            dirLA112, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[6].X < 0 && ballPt[6].X > -948 && ballPt[6].Z > -560 && ballPt[6].Z < 0)
+                             //    {
+                             //        xna.Vector3 LA122 = new Vector3();
+                             //        float dirLA122 = DirBToG(ballPt[6], LA12);
+                             //        LA122.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA122));
+                             //        LA122.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA122));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA122,
+                             //            dirLA122, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //6号球在D区下半部分
+                             //    if (ballPt[6].X < 948 && ballPt[6].X > 0 && ballPt[6].Z > 0 && ballPt[6].Z < 560)
+                             //    {
+                             //        xna.Vector3 LA211 = new Vector3();
+                             //        float dirLA211 = DirBToG(ballPt[6], LA21);
+                             //        LA211.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA211));
+                             //        LA211.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA211));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA211,
+                             //            dirLA211, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[6].X < 0 && ballPt[6].X > -948 && ballPt[6].Z > 0 && ballPt[6].Z < 560)
+                             //    {
+                             //        xna.Vector3 LA221 = new Vector3();
+                             //        float dirLA221 = DirBToG(ballPt[6], LA22);
+                             //        LA221.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA221));
+                             //        LA221.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA221));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA221,
+                             //            dirLA221, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //6号球在A1区
+                             //    if (ballPt[6].X < 1500 && ballPt[6].X > 0 && ballPt[6].Z > -1000 && ballPt[6].Z < -560)
+                             //    {
+                             //        xna.Vector3 LA114 = new Vector3();
+                             //        float dirLA114 = DirBToG(ballPt[6], LA11);
+                             //        LA114.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA114));
+                             //        LA114.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA114));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA114,
+                             //            dirLA114, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[6].X < 0 && ballPt[6].X > -1200 && ballPt[6].Z > -1000 && ballPt[6].Z < -560)
+                             //    {
+                             //        xna.Vector3 LA124 = new Vector3();
+                             //        float dirLA124 = DirBToG(ballPt[6], B1);
+                             //        LA124.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA124));
+                             //        LA124.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA124));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA124,
+                             //            dirLA124, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //6号球在B1区
+                             //    else if (ballPt[6].X < -1200 && ballPt[6].X > -1500 && ballPt[6].Z < 1000 && ballPt[6].Z > 560)
+                             //    {
+                             //        xna.Vector3 B12 = new Vector3();
+                             //        float dirB12 = DirBToG(ballPt[6], G11);
+                             //        B12.X = (float)(ballPt[6].X - 0.8 * r * Math.Cos(dirB12));
+                             //        B12.Z = (float)(ballPt[6].Z - 0.8 * r * Math.Sin(dirB12));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], B12,
+                             //            dirB12, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+
+                             //    //6号球在A2区
+                             //    if (ballPt[6].X < 1500 && ballPt[6].X > 0 && ballPt[6].Z > 560 && ballPt[6].Z < 1000)
+                             //    {
+                             //        xna.Vector3 LA212 = new Vector3();
+                             //        float dirLA212 = DirBToG(ballPt[6], LA21);
+                             //        LA212.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA212));
+                             //        LA212.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA212));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA212,
+                             //            dirLA212, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[6].X < 0 && ballPt[6].X > -1200 && ballPt[6].Z > 560 && ballPt[6].Z < 1000)
+                             //    {
+                             //        xna.Vector3 LA222 = new Vector3();
+                             //        float dirLA222 = DirBToG(ballPt[6], B2);
+                             //        LA222.X = (float)(ballPt[6].X + 0.8 * r * Math.Cos(dirLA222));
+                             //        LA222.Z = (float)(ballPt[6].Z + 0.8 * r * Math.Sin(dirLA222));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], LA222,
+                             //            dirLA222, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+                             //    //6号球在B2区
+                             //    else if (ballPt[6].X < -1200 && ballPt[6].X > -1500 && ballPt[6].Z < 1000 && ballPt[6].Z > 560)
+                             //    {
+                             //        xna.Vector3 B21 = new Vector3();
+                             //        float dirB21 = DirBToG(ballPt[6], G12);
+                             //        B21.X = (float)(ballPt[6].X - 0.8 * r * Math.Cos(dirB21));
+                             //        B21.Z = (float)(ballPt[6].Z - 0.8 * r * Math.Sin(dirB21));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], B21,
+                             //            dirB21, 5, 10, 80, 14, 14, 15, 100, true);
+                             //    }
+
+
+                             //    //3号球在G1区
+                             //    if (ballPt[6].X > -1500 && ballPt[6].X < -1092 && ballPt[6].Z < 560 && ballPt[6].Z > 0)
+                             //    {
+                             //        xna.Vector3 G122 = new Vector3();
+                             //        float dirG122 = DirfishToG(ballPt[6], Lgoal);
+                             //        G122.X = (float)(ballPt[6].X - 0.8 * r * Math.Cos(dirG122));
+                             //        G122.Z = (float)(ballPt[6].Z - 0.8 * r * Math.Sin(dirG122));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], G122,
+                             //            dirG122, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    else if (ballPt[6].X > -1500 && ballPt[6].X < -1092 && ballPt[6].Z < 0 && ballPt[6].Z > -560)
+                             //    {
+                             //        xna.Vector3 G112 = new Vector3();
+                             //        float dirG112 = DirfishToG(ballPt[6], Lgoal);
+                             //        G112.X = (float)(ballPt[6].X - 0.8 * r * Math.Cos(dirG112));
+                             //        G112.Z = (float)(ballPt[6].Z - 0.8 * r * Math.Sin(dirG112));
+                             //        StrategyHelper.Helpers.Dribble(ref decisions[1], mission.TeamsRef[teamId].Fishes[1], G112,
+                             //           dirG112, 5, 10, 80, 14, 8, 15, 100, true);
+                             //    }
+                             //    #endregion
+                             //}
+
+
+
+
+
+15293807129
+
+
+            
